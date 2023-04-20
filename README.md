@@ -43,7 +43,7 @@ python main_graph.py -k hr --post_refine --rsnet_reload 1 --post_refine_reload 1
 
 To evaluate our pre-trained model using ground truth 2D keypoints without pose refinement, please run:
 ```bash
-python main_graph.py -k gt --post_refine --rsnet_reload 1 --show_protocol2 --previous_dir './checkpoint/' --rsnet_model '[model_rsnet]' --post_refine_model '[model_post_refine]' --nepoch 2 -z 64 --batchSize 128
+python main_graph.py -k gt --post_refine --rsnet_reload 1 --show_protocol2 --previous_dir './checkpoint/' --rsnet_model '[model_rsnet]' --nepoch 2 -z 64 --batchSize 128
 ```
 
 ## Training from scratch
@@ -70,7 +70,7 @@ python main_graph.py -k gt --rsnet_reload 1 --show_protocol2 --previous_dir './c
 ```
 
 ### MPI-INF-3DHP
-We train our model using ground truth 2D keypoints on Human3.6M and test our model on the test set of MPI-INF-3DHP.
+We evaluate our RS-Net on the testing set of MPI-INF-3DHP to test its generalization ability across different datasets. We train our model using ground truth 2D keypoints on Human3.6M and test our model on the test set of MPI-INF-3DHP.
 
 For testing, please run:
 ```bash
