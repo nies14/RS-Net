@@ -43,7 +43,7 @@ python main_graph.py -k hr --post_refine --rsnet_reload 1 --post_refine_reload 1
 
 To evaluate our pre-trained model using ground truth 2D keypoints without pose refinement, please run:
 ```bash
-python main_graph.py -k gt --post_refine --rsnet_reload 1 --show_protocol2 --previous_dir './checkpoint/GT' --rsnet_model model_module_gcn_5_eva_xyz_3728' --nepoch 2 -z 64 --batchSize 128
+python main_graph.py -k gt --post_refine --rsnet_reload 1 --show_protocol2 --previous_dir './checkpoint/GT' --rsnet_model model_rsnet_5_eva_xyz_3728' --nepoch 2 -z 64 --batchSize 128
 ```
 
 ## Training from scratch
