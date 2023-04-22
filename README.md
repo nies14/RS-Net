@@ -38,12 +38,12 @@ You can download our pre-trained models from [here](https://drive.google.com/dri
 
 To evaluate our pre-trained model using the detected 2D keypoints (HR-Net) with pose refinement, please run:
 ```bash
-python main_graph.py -k hr --post_refine --rsnet_reload 1 --post_refine_reload 1 --save_out_type post --show_protocol2 --previous_dir './checkpoint' --save_dir './checkpoint/result/' --rsnet_model model_rsnet_2_eva_post_4704.pth --post_refine_model model_post_refine_2_eva_post_4704.pth --nepoch 2 -z 96 --batchSize 512
+python main_graph.py -k hr --post_refine --rsnet_reload 1 --post_refine_reload 1 --save_out_type post --show_protocol2 --previous_dir './checkpoint/HR-Net' --rsnet_model model_rsnet_2_eva_post_4704.pth --post_refine_model model_post_refine_2_eva_post_4704.pth --nepoch 2 -z 96 --batchSize 512
 ```
 
 To evaluate our pre-trained model using ground truth 2D keypoints without pose refinement, please run:
 ```bash
-python main_graph.py -k gt --post_refine --rsnet_reload 1 --show_protocol2 --previous_dir './checkpoint/' --rsnet_model '[model_rsnet]' --nepoch 2 -z 64 --batchSize 128
+python main_graph.py -k gt --post_refine --rsnet_reload 1 --show_protocol2 --previous_dir './checkpoint/GT' --rsnet_model model_module_gcn_5_eva_xyz_3728' --nepoch 2 -z 64 --batchSize 128
 ```
 
 ## Training from scratch
@@ -56,25 +56,17 @@ python main_graph.py -k hr --pro_train 1 --save_model 1  --save_dir './checkpoin
 
 To evaluate our model using the detected 2D keypoints (HR-Net) with pose refinement, please run:
 ```bash
-python main_graph.py -k hr --post_refine --rsnet_reload 1 --post_refine_reload 1 --save_out_type post --show_protocol2 --previous_dir './checkpoint/' --rsnet_model '[model_rsnet]' --post_refine_model '[model_post_refine]' --nepoch 2 -z 96 --batchSize 512
+python main_graph.py -k hr --post_refine --rsnet_reload 1 --post_refine_reload 1 --save_out_type post --show_protocol2 --previous_dir './checkpoint/HR-Net' --rsnet_model '[model_rsnet]' --post_refine_model '[model_post_refine]' --nepoch 2 -z 96 --batchSize 512
 ```
 
 To train our model on the ground truth 2D keypoints without pose refinement, please run:
 ```bash
-python main_graph.py -k gt  --pro_train 1 --save_model 1  --save_dir './checkpoint' --show_protocol2  -z 64 --batchSize 128 --nepoch 31
+python main_graph.py -k gt  --pro_train 1 --save_model 1  --save_dir './checkpoint/GT' --show_protocol2  -z 64 --batchSize 128 --nepoch 31 --learning_rate 1e-3 --large_decay_epoch 5 --lr_decay .95
 ```
 
 To evaluate our model using ground truth 2D keypoints without pose refinement, please run:
 ```bash
-python main_graph.py -k gt --rsnet_reload 1 --show_protocol2 --previous_dir './checkpoint/' --rsnet_model '[model_rsnet]' --nepoch 2 -z 64 --batchSize 128
-```
-
-### MPI-INF-3DHP
-We evaluate our RS-Net on the testing set of MPI-INF-3DHP to test its generalization ability across different datasets. We train our model using ground truth 2D keypoints on Human3.6M and test our model on the test set of MPI-INF-3DHP.
-
-For testing, please run:
-```bash
-python main_graph_3dhp.py -k gt --rsnet_reload 1 --previous_dir './checkpoint/' --rsnet_model '[model_rsnet]'
+python main_graph.py -k gt --rsnet_reload 1 --show_protocol2 --previous_dir './checkpoint/GT' --rsnet_model '[model_rsnet]' --nepoch 2 -z 64 --batchSize 128
 ```
 
 ## Acknowledgement
