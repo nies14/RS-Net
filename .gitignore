@@ -1,5 +1,5 @@
 .vscode/
-dataset/
+dataset/*
 ckpt/
 checkpoint/
 videoToFrame/
