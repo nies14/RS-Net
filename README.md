@@ -20,9 +20,17 @@ Make sure you have the following dependencies installed:
 
 * PyTorch >= 1.7.0
 * NumPy
-* Matplotlib >= 2.2.5
+* Matplotlib
 * FFmpeg (if you want to export MP4 videos)
 * ImageMagick (if you want to export GIFs)
+
+## You can create the environment:
+```bash
+conda create -n rsnet python=3.8
+conda activate rsnet
+pip install -r requirements.txt
+pip install torch==1.7.0+cu110 torchvision==0.8.1+cu110 torchaudio==0.7.0 -f https://download.pytorch.org/whl/torch_stable.html
+```
 
 ## Dataset
 
