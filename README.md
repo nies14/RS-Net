@@ -1,4 +1,4 @@
-# Regular Splitting Graph Network for 3D Human Pose Estimation (RS-Net)
+# [Regular Splitting Graph Network for 3D Human Pose Estimation (RS-Net)](https://ieeexplore.ieee.org/document/10179252)[IEEE Transactions on Image Processing'2023]
 <p align="center"><img src="./demo/Network_Architechture.png", width="600" alt="" /></p>
 The PyTorch implementation for RS-Net.
 
